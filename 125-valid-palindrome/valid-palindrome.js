@@ -2,20 +2,18 @@
  * @param {string} s
  * @return {boolean}
  */
-var isPalindrome = function (s) {
-    let str = s.split("").filter((s) => /[a-zA-Z0-9]/.test(s))
-    str = str.join("").toLowerCase()
-    
-    let left = 0
-    let right = str.length - 1
 
+var isPalindrome = function (s) {
+    let left = 0
+    let right = s.length - 1
     while (left < right) {
-        if (str[left] === str[right]) {
-            left++
-            right--
-        } else {
-            return false
-        }
+        while (left < right && !/[a-z0-9]/i.test(s[left])) { left++ }
+        while (left < right && !/[a-z0-9]/i.test(s[right])) { right-- }
+
+        if (s[left].toLowerCase() !== s[right].toLowerCase()) return false
+
+        left++
+        right--
     }
     return true
 };
