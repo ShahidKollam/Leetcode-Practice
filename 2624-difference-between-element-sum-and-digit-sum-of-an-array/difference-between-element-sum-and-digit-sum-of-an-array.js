@@ -3,20 +3,23 @@
  * @return {number}
  */
 var differenceOfSum = function (nums) {
-    let sum = nums.reduce((acc, val) => (acc += val), 0)
-    let digisum = 0
+    let sum1 = 0
+    let sum2 = 0
+
     for (let i = 0; i < nums.length; i++) {
-        let newSum = 0
+        sum1 += nums[i]
+
         if (nums[i] > 9) {
             let str = nums[i].toString()
-
+            let sum = 0
             for (let i = 0; i < str.length; i++) {
-                newSum += Number(str[i])
+                sum += Number(str[i])
             }
-            digisum += newSum
+            sum2 += sum
         } else {
-            digisum += nums[i]
+            sum2 += nums[i]
         }
     }
-    return sum - digisum
+
+    return sum1 - sum2
 };
