@@ -3,11 +3,7 @@
  * @return {number}
  */
 var differenceOfSum = function (nums) {
-    // let sum = nums.reduce((acc, val) => (acc += val), 0)
-    let sum = 0
-    for (let i = 0; i < nums.length; i++) {
-        sum += nums[i];
-    }
+    let sum = nums.reduce((acc, val) => (acc += val), 0)
     let digisum = 0
     for (let i = 0; i < nums.length; i++) {
         let newSum = 0
