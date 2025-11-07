@@ -10,5 +10,4 @@ var reverseString = function (s) {
         l++
         r--
     }
-
 };
