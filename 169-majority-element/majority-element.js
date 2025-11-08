@@ -3,15 +3,7 @@
  * @return {number}
  */
 var majorityElement = function (nums) {
-    let count = 0,
-        candidate = null;
-    for (let i = 0; i < nums.length; i++) {
-        if (count === 0) {
-            candidate = nums[i];
-            count++;
-        } else if (nums[i] === candidate) {
-            count++;
-        } else count--;
-    }
-    return candidate;
+    nums = nums.sort()
+    let mid = Math.floor(nums.length / 2)
+    return nums[mid]
 };
