@@ -3,40 +3,23 @@
  * @return {number}
  */
 var mostFrequentEven = function (nums) {
-    let freq = 0
-    let small = 0
-
     let map = new Map()
-    for (let n of nums) {
-        if (n % 2 === 0) {
-            if (map.has(n)) {
-                map.set(n, map.get(n) + 1)
-            } else {
-                map.set(n, 1)
-            }
-            if (freq < map.get(n)) {
-                freq = map.get(n)
-                small = n
-            } else if (freq === map.get(n) && small > n) {
-                small = n
+    let freq = 0
+    let small = -1
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] % 2 === 0) {
+            map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+
+            let count = map.get(nums[i])
+            if (count > freq) {
+                freq = count
+                small = nums[i]
+            } else if (count === freq) {
+                if (nums[i] < small) {
+                    small = nums[i]
+                }
             }
         }
-
     }
-
-    if (map.size === 0) return -1
     return small
-
-    // let freq = 0
-    // let small = 0
-
-    // for (let [key, val] of map) {
-    //     if (val > freq) {
-    //         freq = val
-    //         small = key
-    //     } else if (val === freq) {
-    //         small = Math.min(small, key)
-    //     }
-    // }
-    // return small
-}
+};
