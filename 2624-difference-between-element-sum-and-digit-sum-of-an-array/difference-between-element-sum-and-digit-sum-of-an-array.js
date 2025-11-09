@@ -10,7 +10,7 @@ var differenceOfSum = function (nums) {
         let sum = 0
         if (nums[i] > 9) {
             sum = String(nums[i]).split('').reduce((acc, val) => acc += Number(val), 0)
-            arrsum += Number(sum)
+            arrsum += sum
         } else {
             arrsum += nums[i]
         }
