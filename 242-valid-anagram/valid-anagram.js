@@ -3,19 +3,16 @@
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-    if (s.length !== t.length) return false;
-
-    let count = {};
-
-    for (let ch of s) {
-        count[ch] = (count[ch] || 0) + 1;
+var isAnagram = function (s, t) {
+    if(s.length !== t.length) return false
+    const map = {}
+    for (let i of s) {
+        map[i] = (map[i] || 0) + 1
     }
 
-    for (let ch of t) {
-        if (!count[ch]) return false;
-        count[ch]--;
+    for (let i of t) {
+        if (!map[i]) return false
+        map[i]--
     }
-
-    return true;
+    return true
 };
