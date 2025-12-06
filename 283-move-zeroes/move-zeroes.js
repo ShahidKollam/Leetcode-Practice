@@ -1,10 +1,16 @@
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
 var moveZeroes = function (nums) {
-    let insertPosition = 0; // position to place the next non-zero number
-
-    for (let current = 0; current < nums.length; current++) {
-        if (nums[current] !== 0) {
-            [nums[current], nums[insertPosition]] = [nums[insertPosition], nums[current]];
-            insertPosition++;
+    let j = 0
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            if (i !== j) {   
+                nums[j] = nums[i];
+                nums[i] = 0;
+            }
+            j++;
         }
     }
 };
