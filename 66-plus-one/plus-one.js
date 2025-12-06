@@ -3,17 +3,15 @@
  * @return {number[]}
  */
 var plusOne = function (digits) {
-    let len = digits.length - 1
-    for (let i = len; i >= 0; i--) {
+    let size = digits.length - 1
+    for (let i = size; i >= 0; i--) {
         if (digits[i] !== 9) {
             digits[i] = digits[i] + 1
             return digits
-        }
-        if (digits[i] === 9) {
+        } else {
             digits[i] = 0
+            if (i === 0) digits.unshift(1)
         }
-
     }
-    digits.unshift(1)
     return digits
 };
