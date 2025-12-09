@@ -3,19 +3,18 @@
  * @return {number}
  */
 var firstUniqChar = function (s) {
-  const freq = new Array(26).fill(0);
+    let map = new Map()
+    for (let n of s) {
+        if (map.has(n)) {
+            map.set(n, (map.get(n)) + 1)
+        } else {
+            map.set(n, 1)
+        }
 
-  // Count frequency
-  for (let ch of s) {
-    freq[ch.charCodeAt(0) - 97]++;  // 'a'.charCodeAt(0) = 97
-  }
-
-  // Find first index with frequency 1
-  for (let i = 0; i < s.length; i++) {
-    if (freq[s.charCodeAt(i) - 97] === 1) {
-      return i;
     }
-  }
+    for (let n of s) {
+        if (map.get(n) === 1) return s.indexOf(n)
 
-  return -1;
+    }
+    return -1
 };
