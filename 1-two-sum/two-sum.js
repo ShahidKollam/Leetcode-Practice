@@ -5,11 +5,13 @@
  */
 var twoSum = function (nums, target) {
     let map = new Map()
-    for (let i = 0; i < nums.length ; i++) {
-        const complement = target - nums[i]
+    let i = 0
+    for (let n of nums) {
+        let complement = target - n
         if (map.has(complement)) {
-            return [i,map.get(complement)]
+            return [i, map.get(complement)]
         }
-        map.set(nums[i], i)
+        map.set(n, i)
+        i++
     }
 };
