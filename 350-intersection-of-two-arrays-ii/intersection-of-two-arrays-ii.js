@@ -13,8 +13,7 @@ var intersect = function (nums1, nums2) {
     for (let i = 0; i < nums2.length; i++) {
         if (obj[nums2[i]] >= 1) {
             arr.push(nums2[i])
-
-            obj[nums2[i]]--
+            obj[nums2[i]] = obj[nums2[i]] - 1
         }
     }
 
