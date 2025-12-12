@@ -4,11 +4,13 @@
  */
 var firstUniqChar = function (s) {
     let map = new Map()
-    for (let i = 0; i < s.length; i++) {
-        map.set(s[i], (map.get(s[i]) || 0) + 1)
+
+    for (let i of s) {
+        map.set(i, (map.get(i) || 0) + 1)
     }
-    for (let [key, val] of map) {
-        if (map.get(key) === 1) return s.indexOf(key)
+
+    for (let i = 0; i < s.length; i++) {
+        if (map.get(s[i]) === 1) return i
     }
     return -1
 };
